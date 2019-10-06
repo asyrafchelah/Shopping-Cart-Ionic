@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ShoppingCartService } from '../shopping-cart.service';
+
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,25 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  mycarts = []
+  totalAmount = 0
+
+  constructor(private shoppingcartservice: ShoppingCartService) {}
+
+  ngOnInit() {
+    this.shoppingcartservice.mycarts.subscribe(mycart => {
+      this.mycarts = mycart
+    })
+
+    this.shoppingcartservice.totalAmount.subscribe(mycart => {
+      this.totalAmount = mycart
+    })
+  }
+
+  removeItems(i){
+    this.shoppingcartservice.removeFromCart(i)
+
+  }
+
 
 }

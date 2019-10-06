@@ -1,9 +1,56 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      My Shopping Cart
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+  <ion-item>
+        <ion-label>
+      Details</ion-label>
+      <ion-label>
+          Quantity</ion-label>
+    <!-- <p>{{mycart.quantity}}</p> -->
+    <ion-label>
+        Total Price(RM)</ion-label>
+    <!-- <p>/p> -->
+
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <ion-item *ngFor="let mycart of mycarts; let i = index" >
+    <ion-thumbnail slot="start">
+      <img src="{{mycart.img}}">
+    </ion-thumbnail>
+    
+    <ion-label class="ion-text-wrap">
+      <h4 class="items-header">{{mycart.label}}</h4>
+      {{mycart.descriptions}}
+      </ion-label>
+      <ion-label>
+          {{mycart.quantity}}</ion-label>
+      <ion-label></ion-label>
+    <!-- <p>{{mycart.quantity}}</p> -->
+    <ion-label class="ion-text-wrap" > Price per item : RM {{mycart.price}}
+      X Quantity {{mycart.quantity}} = RM {{mycart.totalPrice}}</ion-label>
+    <!-- <p>/p> -->
+
+
+
+    <ion-button (click) = "removeItems(i)" slot="end">
+    <ion-icon name="trash" ></ion-icon>
+    </ion-button>
+
+    <!-- <p slot="end">{{product.quantity}}</p>
+    <ion-icon name="remove-circle-outline" slot="end" (click)="minusItems(i)"></ion-icon>
+    <ion-icon name="cart" slot="end" (click)="addToCart()"></ion-icon> -->
+
+    <!-- <ion-icon name="more" slot="end" (click)="openActions($event, i)"></ion-icon> -->
+  </ion-item>
+</ion-list>
+</ion-content>

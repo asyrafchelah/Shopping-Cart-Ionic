@@ -1,4 +1,6 @@
-.welcome-card img {
-  max-height: 35vh;
-  overflow: hidden;
+.center {
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 100%;
 }

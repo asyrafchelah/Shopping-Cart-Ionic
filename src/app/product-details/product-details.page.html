@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>{{selectedProduct.label}}</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="tab2"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-img [src]="selectedProduct.img" style="height: 200px;"></ion-img>
+    <h4>Features :</h4>
+    <ul>
+      <li *ngFor="let desc of selectedProduct.descriptions"><h5>{{desc}}</h5></li>
+    </ul>
+  </ion-content>
